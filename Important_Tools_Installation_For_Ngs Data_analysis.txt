@@ -1,0 +1,182 @@
+# Create a directory structure for NGS data analysis in the Documents folder
+cd ~/Documents/
+mkdir ngs_data_analysis
+cd ngs_data_analysis
+mkdir tools
+cd tools/
+
+# 1. FastQC
+mkdir fastqc
+cd fastqc
+
+# Download FastQC from the official website
+# Replace the URL with the latest version if needed
+wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+
+# Copy the downloaded file to the fastqc folder
+cp ~/Downloads/fastqc_v0.12.1.zip .
+
+# Unzip the FastQC file
+unzip fastqc_v0.12.1.zip
+
+# 2. MultiQC
+mkdir Multiqc
+cd Multiqc
+
+# Download MultiQC from PyPI
+# Replace the version number with the latest version if needed
+wget https://files.pythonhosted.org/packages/source/M/MultiQC/MultiQC-1.17.tar.gz
+
+# Copy the downloaded file to the MultiQC folder
+cp ~/Downloads/MultiQC-1.17.tar.gz .
+
+# Unzip the MultiQC file
+tar -xvf MultiQC-1.17.tar.gz
+
+# Navigate into the MultiQC directory
+cd multiqc-1.17
+
+# To install MultiQC
+# Handle an error: error: externally-managed-environment
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+# Alternatively, install MultiQC using apt
+sudo apt install multiqc
+
+# 3. Samtools
+mkdir samtools
+cd samtools
+
+# Download Samtools from the official website
+# Replace the version number with the latest version if needed
+wget http://www.htslib.org/download/samtools-1.17.tar.bz2
+
+# Unzip the Samtools file
+tar -xf samtools-1.17.tar.bz2
+
+# Install dependencies
+sudo apt install libbz2-dev
+sudo apt install liblzma-dev
+
+# Configure and build Samtools
+sudo ./configure --without-curses
+make
+
+# Set the environment variable path in ~/.bashrc
+export PATH=/mnt/a/ani_linux/tools/Samtools/samtools-1.18:$PATH 
+source ~/.bashrc
+
+# 4. Trimmomatic
+mkdir Trimmomatic
+cd Trimmomatic
+
+# Download Trimmomatic from the official website
+# Replace the version number with the latest version if needed
+wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.39.zip
+
+# Copy the downloaded file to the Trimmomatic folder
+cp ~/Downloads/Trimmomatic-Src-0.39.zip .
+
+# Unzip the Trimmomatic file
+unzip Trimmomatic-Src-0.39.zip
+
+# Update Java version
+sudo apt-get install openjdk-8-jre
+
+# 5. Cutadapt
+mkdir cutadapt
+cd cutadapt
+
+# Install Cutadapt using apt
+sudo apt install cutadapt
+
+# 6. SRA Toolkit
+mkdir SRA_Toolkit
+cd SRA_Toolkit
+
+# Download SRA Toolkit
+# Replace the version number with the latest version if needed
+wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz
+
+# Unzip the SRA Toolkit file
+tar -xvf sratoolkit.tar.gz
+
+# Set the SRA Toolkit path in ~/.bashrc
+export PATH=/mnt/a/ani_linux/tools/SRA_Toolkit/sratoolkit.3.0.7-ubuntu64/bin/:$PATH
+source ~/.bashrc
+
+# 7. Bowtie2
+mkdir Bowtie2
+cd Bowtie2
+
+# Download Bowtie2 from SourceForge
+# Replace the version number with the latest version if needed
+wget https://sourceforge.net/projects/bowtie-bio/files/bowtie2/bowtie2-2.5.1-linux-aarch64.zip
+
+# Unzip the Bowtie2 file
+unzip bowtie2-2.5.1-linux-aarch64.zip
+
+# 8. BWA
+mkdir BWA
+cd BWA
+
+# Download BWA from SourceForge
+# Replace the version number with the latest version if needed
+wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.17.tar.bz2
+
+# Unzip the BWA file
+tar -xvf bwa-0.7.17.tar.bz2
+
+# Set the BWA path in ~/.bashrc
+ export PATH=/home/ubuntu23/Documents/ngs_data_analysis/tools/BWA/bwa-0.7.12:$PATH 
+source ~/.bashrc
+
+# 9. STAR
+mkdir STAR
+cd STAR
+
+# Download STAR from GitHub
+# Replace the version number with the latest version if needed
+wget https://github.com/alexdobin/STAR/archive/2.7.10b.tar.gz
+
+# Unzip the STAR file
+tar -xf 2.7.10b.tar.gz
+
+# 10. HISAT2
+mkdir hisat2
+cd hisat2
+
+# Download HISAT2 from the official website
+# Replace the version number with the latest version if needed
+wget https://daehwankimlab.github.io/hisat2/download/hisat2-2.2.1-Linux_x86_64.zip
+
+# Unzip the HISAT2 file
+unzip hisat2-2.2.1-Linux_x86_64.zip
+
+# Set the HISAT2 path in ~/.bashrc
+export PATH=/mnt/a/ani_linux/tools/hisat2/hisat2-2.2.1:$PATH 
+source ~/.bashrc
+
+# 11. FeatureCounts
+# Install FeatureCounts using apt
+sudo apt update
+sudo apt install subread
+
+# 12. BCFtools
+sudo apt install bcftools
+
+# Alternatively, download and compile BCFtools from source
+# Replace the version number with the latest version if needed
+wget https://github.com/samtools/bcftools/releases/download/1.19/bcftools-1.19.tar.bz2
+tar -xf bcftools-1.19.tar.bz2
+
+# 13. BEDTools
+sudo apt install bedtools
+
+# Alternatively, download and compile BEDTools from source
+# Replace the version number with the latest version if needed
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/bedtools/BEDTools.v2.17.0.tar.gz
+tar -xvf BEDTools.v2.17.0.tar.gz
+
+
+

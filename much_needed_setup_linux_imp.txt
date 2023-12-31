@@ -1,0 +1,34 @@
+#Linux user commands
+
+sudo adduser aypatil
+
+ubuntu config --default-user root
+
+#####
+
+wsl -u aypatil
+
+#To update linux ubuntu subsystem open terminal and perform this step
+sudo apt-get update
+
+# How to hide full path if path of the directory goes out of the screen
+
+https://askubuntu.com/questions/16728/hide-current-working-directory-in-terminal
+
+# vi is use to open the file in linux - as editor 
+sudo apt install vim
+
+vi ~/bashrc
+esc+i
+export PATH=<FOLDER LOCATION>:$PATH
+esc
+:wq
+
+#to update or refresh the changes made in the bashrc file to be applicable in shells permanently
+source ~/.bashrc
+
+sudo apt install default-jre
+java -version
+
+sudo apt install pip
+
