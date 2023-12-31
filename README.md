@@ -1,0 +1,2 @@
+# NGS_Tools_Installation
+Important_Tools_Installation_For_Ngs Data_analysis
